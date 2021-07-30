@@ -1,0 +1,5 @@
+target/
+.cpcache
+.deeplearning4j
+deeplearning4j-data
+

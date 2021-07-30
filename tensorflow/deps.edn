@@ -1,0 +1,13 @@
+{:paths ["src"]
+ :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+             "clojars" {:url "https://clojars.org/repo/"}}
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        nrepl {:mvn/version "0.6.0"}
+        cider/cider-nrepl {:mvn/version "0.21.1"}
+        org.clojure/data.csv {:mvn/version "0.1.4"}
+        org.tensorflow/tensorflow {:mvn/version "1.15.0"}
+        org.tensorflow/libtensorflow {:mvn/version "1.15.0"}
+        org.tensorflow/libtensorflow_jni_gpu {:mvn/version "1.15.0"}
+        github/pad {:git/url "https://github.com/pad"
+                    :sha "2eb84840ee63ce204fccb93470700d5126616b5f"
+                    :deps/root "."}}}
