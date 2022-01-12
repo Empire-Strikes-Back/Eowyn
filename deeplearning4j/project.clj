@@ -15,18 +15,18 @@
                                     :snapshots true
                                     :update    :always}]]
 
-  :min-lein-version "2.8.0"
+  :min-lein-version "2.9.5"
 
-  :plugins [[lein-virgil "0.1.9"]
+  :plugins [#_[lein-virgil "0.1.9"]
             [io.taylorwood/lein-native-image "0.3.1"]]
 
-  :dependencies [[org.clojure/clojure "1.10.1"]
+  :dependencies [[org.clojure/clojure "1.10.3"]
                  [nrepl "0.6.0"]
                  [cider/cider-nrepl "0.22.0"]
                  [org.clojure/data.json "0.2.7"]
 
                  [org.nd4j/nd4j-cuda-9.2 "1.0.0-beta5"]
-                 #_[org.nd4j/nd4j-native "1.0.0-beta4"]
+                 #_[org.nd4j/nd4j-native "1.0.0-beta5"]
                  [org.deeplearning4j/deeplearning4j-core "1.0.0-beta5"]
                  [org.deeplearning4j/deeplearning4j-zoo "1.0.0-beta5"]
                  [org.deeplearning4j/deeplearning4j-nlp "1.0.0-beta5"]
@@ -37,39 +37,34 @@
                  [org.jfree/jcommon "1.0.23"]]
 
 
-  :repl-options {:init-ns          deeplearning4j.main
-                 :main             deeplearning4j.main
+  :repl-options {:init-ns          Eowyn.main
+                ;;  :main             Eowyn.main
                  :host             "0.0.0.0"
                  :port             7788}
-  :profiles {:dev  {:main         ^{:skip-aot true}  deeplearning4j.main
+  :profiles {:dev  {:main         ^{:skip-aot true}  Eowyn.main
                     :aot          nil #_[dev]
-                    :aliases      {"dev" ["trampoline" "run" "-m" "deeplearning4j.main/-main"]}
+                    :aliases      {"dev" ["trampoline" "run" "-m" "Eowyn.main/-main"]}
                     :dependencies []}
 
-             :prod ^:leaky {:main deeplearning4j.main
-                            :uberjar-name "deeplearning4j.main-standalone.jar"
-                            :jar-name     "deeplearning4j.main.jar"
-                            :aot  [deeplearning4j.main]}
+             :prod ^:leaky {:main Eowyn.main
+                            :uberjar-name "Eowyn-standalone.jar"
+                            :jar-name     "Eowyn.jar"
+                            :aot  [Eowyn.main]}
              :uberjar {:aot :all
-                       :native-image {:jvm-opts ["-Dclojure.compiler.direct-linking=true"]}}
-             }
+                       :native-image {:jvm-opts ["-Dclojure.compiler.direct-linking=true"]}}}
 
-  :native-image {:name "deeplearning4j.native"                 ;; name of output image, optional
+  :native-image {:name "Eowyn.native"                 ;; name of output image, optional
                 ;  :graal-bin "/path/to/graalvm/" ;; path to GraalVM home, optional
                  :opts ["--no-server" ;; pass-thru args to GraalVM native-image, optional
                         "--report-unsupported-elements-at-runtime"
                         "--initialize-at-build-time"
                         "--verbose"
-                        "--no-fallback"
-                        ]}           
+                        "--no-fallback"]}
 
-  
 
-  :main ^:skip-aot deeplearning4j.main
+  :main ^:skip-aot Eowyn.main
   :jvm-opts ["-Xms768m" "-Xmx11998m"]
 
   :source-paths ["src"]
   :java-source-paths ["src"]
-  :test-paths ["test"]
-  :resource-paths ["resources" "config"]
   :auto-clean false)

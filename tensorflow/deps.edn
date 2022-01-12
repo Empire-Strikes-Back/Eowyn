@@ -8,6 +8,9 @@
         org.tensorflow/tensorflow {:mvn/version "1.15.0"}
         org.tensorflow/libtensorflow {:mvn/version "1.15.0"}
         org.tensorflow/libtensorflow_jni_gpu {:mvn/version "1.15.0"}
-        github/pad {:git/url "https://github.com/pad"
-                    :sha "2eb84840ee63ce204fccb93470700d5126616b5f"
-                    :deps/root "."}}}
+        Elrond/Elrond {:git/url "https://github.com/Empire-Strikes-Back/Elrond"
+                       :sha "e58c502282465836c8be7836158ad3ac5e921240"
+                       :deps/root "."}}
+ :aliases
+ {:repl {:extra-deps {Ripley/Ripley {:git/url "https://github.com/Empire-Strikes-Back/Ripley"
+                                     :sha "becd2573ab55d42933134d346bc46cdd8fa08c04"}}}}}

@@ -4,5 +4,5 @@
  :nrepl {:port 7888}
  :builds {:program {:target :node-script
                 :output-to "target/main.js"
-                :main tensorflow-nodejs.main/main
-                :devtools {:after-load tensorflow-nodejs.main/reload}}}}
+                :main Eowyn.main/main
+                :devtools {:after-load Eowyn.main/reload}}}}

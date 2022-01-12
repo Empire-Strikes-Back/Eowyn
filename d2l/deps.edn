@@ -4,26 +4,15 @@
              "hellonico" {:url "https://repository.hellonico.info/repository/hellonico/"}
              "staging" {:url "https://repository.apache.org/content/repositories/staging"}
              "snapshots" {:url "https://repository.apache.org/content/repositories/snapshots"}
-             "snapshots2" {:url "https://repository.apache.org/content/groups/snapshots"}
-             }
- :deps {}
- :aliases
- {:core {:extra-deps
-         {org.clojure/clojure {:mvn/version "1.10.1"}
-          ; org.apache.mxnet.contrib.clojure/clojure-mxnet-linux-cpu {:mvn/version "1.5.1"}
-          org.apache.mxnet.contrib.clojure/clojure-mxnet-linux-gpu {:mvn/version "1.5.1"}
-          origami {:mvn/version "4.0.0-7"}
+             "snapshots2" {:url "https://repository.apache.org/content/groups/snapshots"}}
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        org.apache.mxnet.contrib.clojure/clojure-mxnet-linux-cpu {:mvn/version "1.5.1"}
+        ;; org.apache.mxnet.contrib.clojure/clojure-mxnet-linux-gpu {:mvn/version "1.5.1"}
+        origami {:mvn/version "4.0.0-7"}
 
-          github/pad {:git/url "https://github.com/pad"
-                             :sha "2eb84840ee63ce204fccb93470700d5126616b5f"
-                             :deps/root "."}
-          }}
-  :nrepl {:extra-deps {nrepl {:mvn/version "0.6.0"}
-                       cider/cider-nrepl {:mvn/version "0.22.4"}}
-          :main-opts ["--main nrepl.cmdline 
-                      --middleware [cider.nrepl/cider-middleware]
-                      --bind 0.0.0.0
-                      --port 7788"
-                      ]}
-  }
-}
+        Elrond/Elrond {:git/url "https://github.com/Empire-Strikes-Back/Elrond"
+                       :sha "e58c502282465836c8be7836158ad3ac5e921240"
+                       :deps/root "."}}
+ :aliases
+ {:repl {:extra-deps {Ripley/Ripley {:git/url "https://github.com/Empire-Strikes-Back/Ripley"
+                                     :sha "becd2573ab55d42933134d346bc46cdd8fa08c04"}}}}}

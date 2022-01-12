@@ -4,4 +4,5 @@ target/
 .shadow-cljs/
 .nrepl-port
 .cpcache
+package-lock.json
 tmp/
